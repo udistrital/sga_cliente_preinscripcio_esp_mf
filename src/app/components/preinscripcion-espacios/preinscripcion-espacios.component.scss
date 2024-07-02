@@ -1,0 +1,28 @@
+.info-container {
+    display: flex;
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+    width: 100%;
+}
+
+mat-card-header {
+    width: 100%;
+    display: block;
+}
+
+.info-container span {
+    flex: 1; /* Ajusta el tamaño de los elementos span */
+    text-align: left; /* Alinea el texto a la izquierda dentro de cada span */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em; /* Ajusta el margen superior según sea necesario */
+    margin-bottom: 1em;
+}
+
+.resume-header {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+}

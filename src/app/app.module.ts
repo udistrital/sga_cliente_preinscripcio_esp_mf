@@ -9,6 +9,18 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { ParametrosService } from './services/parametros.service';
+import { RequestManager } from './managers/requestManager';
+import { MatCardModule } from '@angular/material/card';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, environment.apiUrl+'assets/i18n/', '.json');
@@ -20,11 +32,21 @@ export function createTranslateLoader(http: HttpClient) {
     AppComponent
   ],
   imports: [
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCheckboxModule,
+    MatCardModule,
     BrowserModule,
     AppRoutingModule,
     CommonModule,
     RouterModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -33,7 +55,10 @@ export function createTranslateLoader(http: HttpClient) {
       }
     })
   ],
-  providers: [],
+  providers: [
+    RequestManager,
+    ParametrosService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
