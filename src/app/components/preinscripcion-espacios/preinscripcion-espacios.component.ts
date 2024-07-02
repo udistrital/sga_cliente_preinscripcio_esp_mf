@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class PreinscripcionEspaciosComponent {
 
+  periodoAcademico: string = ""
+  proyectoCurricular: string = ""
+  codigoEstudiante: string = ""
+
+  ngOnInit(): void {
+
+  }
+
+  cargarPeriodoAcademico(){
+    
+  }
 }
