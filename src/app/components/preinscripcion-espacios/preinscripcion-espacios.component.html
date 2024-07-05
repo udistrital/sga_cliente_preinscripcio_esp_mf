@@ -1,1 +1,61 @@
-<p>{{"preinscripciones.activo"|translate}}</p>
+<div>
+    <mat-card class="full-screen-card">
+        <mat-card-header>
+            <mat-card-title>{{"preinscripciones.preinscripcionEspacios"|translate}}</mat-card-title>
+            <mat-card-subtitle>
+                <div class="info-container">
+                    <span><strong>Periodo:</strong> {{ periodoAcademico }} </span>
+                    <span><strong>Proyecto:</strong> {{proyectoCurricular }} </span>
+                    <span><strong>Código:</strong> {{ codigoEstudiantes }} </span>
+                </div>
+            </mat-card-subtitle>
+        </mat-card-header>
+        <div class="resume-header">
+           <strong>Resumen selección</strong> 
+        </div>
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" class="mat-table">
+
+                <!-- Academic Space Column -->
+                <ng-container matColumnDef="academicSpace">
+                    <th mat-header-cell *matHeaderCellDef> Espacio académico </th>
+                    <td mat-cell *matCellDef="let element"> {{element.academicSpace}} </td>
+                </ng-container>
+
+                <!-- Semester Column -->
+                <ng-container matColumnDef="semester">
+                    <th mat-header-cell *matHeaderCellDef> Semestre </th>
+                    <td mat-cell *matCellDef="let element"> {{element.semester}} </td>
+                </ng-container>
+
+                <!-- Credits Column -->
+                <ng-container matColumnDef="credits">
+                    <th mat-header-cell *matHeaderCellDef> Créditos </th>
+                    <td mat-cell *matCellDef="let element"> {{element.credits}} </td>
+                </ng-container>
+
+                <!-- Description Column -->
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef> Descripción </th>
+                    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+                </ng-container>
+
+                <!-- Selection Column -->
+                <ng-container matColumnDef="selection">
+                    <th mat-header-cell *matHeaderCellDef> Selección </th>
+                    <td mat-cell *matCellDef="let element">
+                        <mat-checkbox [(ngModel)]="element.selection"></mat-checkbox>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+
+        <div class="button-container">
+            <button mat-raised-button color="primary">Preinscribir</button>
+        </div>
+
+    </mat-card>
+</div>
