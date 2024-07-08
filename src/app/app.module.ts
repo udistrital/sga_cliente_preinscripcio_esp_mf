@@ -20,6 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { ListadoEspaciosComponent } from './components/listado-espacios/listado-espacios.component';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -29,6 +30,7 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     PreinscripcionEspaciosComponent,
+    ListadoEspaciosComponent,
     AppComponent
   ],
   imports: [
