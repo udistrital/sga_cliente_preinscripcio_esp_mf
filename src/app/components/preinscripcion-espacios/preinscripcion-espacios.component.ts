@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ParametrosService } from '../../services/parametros.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-preinscripcion-espacios',
   templateUrl: './preinscripcion-espacios.component.html',
@@ -22,7 +23,8 @@ export class PreinscripcionEspaciosComponent {
   ];
 
   constructor(
-    private sgaParametrosService: ParametrosService
+    private sgaParametrosService: ParametrosService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -54,5 +56,9 @@ export class PreinscripcionEspaciosComponent {
       console.log(this.usuario)
     }
 
+  }
+
+  ButtonHandler() {
+    this.router.navigate(['/listados-espacios-academicos'])
   }
 }

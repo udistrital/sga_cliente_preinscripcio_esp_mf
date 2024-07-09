@@ -1,0 +1,20 @@
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.mat-elevation-z8 {
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 16px; /* Ajusta el margen superior según sea necesario */
+    margin-bottom: 1em;
+}
+
+.semester-container {
+    margin-bottom: 32px; /* Ajusta el margen inferior para el espacio entre semestres */
+}
+
+mat-card-title{
+    margin: 1em;
+}

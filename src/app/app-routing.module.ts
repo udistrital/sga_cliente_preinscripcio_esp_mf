@@ -4,9 +4,11 @@ import { RouterModule, Routes, provideRouter } from '@angular/router';
 import { getSingleSpaExtraProviders } from 'single-spa-angular';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { PreinscripcionEspaciosComponent } from './components/preinscripcion-espacios/preinscripcion-espacios.component';
+import { ListadoEspaciosComponent } from './components/listado-espacios/listado-espacios.component';
 
 
 const routes: Routes = [
+  { path: "listados-espacios-academicos", component: ListadoEspaciosComponent },
   { path: "espacios-academicos", component: PreinscripcionEspaciosComponent },
   { path: "", component: PreinscripcionEspaciosComponent },
 ];
