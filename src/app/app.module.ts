@@ -21,6 +21,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { ListadoEspaciosComponent } from './components/listado-espacios/listado-espacios.component';
+import { PreinscripcionesService } from './services/preinscripciones.service';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -60,6 +61,7 @@ export function createTranslateLoader(http: HttpClient) {
   providers: [
     RequestManager,
     ParametrosService,
+    PreinscripcionesService,
   ],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ParametrosService } from '../../services/parametros.service';
 import { Router } from '@angular/router';
+import { PreinscripcionesService } from '../../services/preinscripciones.service';
 @Component({
   selector: 'app-preinscripcion-espacios',
   templateUrl: './preinscripcion-espacios.component.html',
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class PreinscripcionEspaciosComponent {
 
+  preinscripciones: any[] = []
   periodoAcademico: string = ""
   proyectoCurricular: string = ""
   usuario: any
@@ -24,12 +26,14 @@ export class PreinscripcionEspaciosComponent {
 
   constructor(
     private sgaParametrosService: ParametrosService,
+    private sgaPreinscripcionesService: PreinscripcionesService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
     this.CargarPeriodoAcademico()
     this.ObtenerCodigoEstudiante()
+    this.CargarPreinscripciones()
   }
 
   CargarPeriodoAcademico() {
@@ -44,6 +48,16 @@ export class PreinscripcionEspaciosComponent {
 
   CargarProyectoCurricular() {
     //Cómo cargar el proyecto?
+  }
+
+  CargarPreinscripciones(){
+    this.sgaPreinscripcionesService.get('preinscripciones').subscribe(
+      (Response: any) => {
+        if (Response.Status == "200" && Response.Success == true) {
+          this.preinscripciones = Response.Data
+        }
+      }
+    )
   }
 
   ObtenerCodigoEstudiante() {
