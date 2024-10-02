@@ -5,12 +5,22 @@ import { getSingleSpaExtraProviders } from 'single-spa-angular';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { PreinscripcionEspaciosComponent } from './components/preinscripcion-espacios/preinscripcion-espacios.component';
 import { ListadoEspaciosComponent } from './components/listado-espacios/listado-espacios.component';
+import { AuthGuard } from '../_guards/auth.guard';
 
 
 const routes: Routes = [
-  { path: "listados-espacios-academicos", component: ListadoEspaciosComponent },
-  { path: "espacios-academicos", component: PreinscripcionEspaciosComponent },
-  { path: "", component: PreinscripcionEspaciosComponent },
+  { path: "listados-espacios-academicos", 
+    canActivate: [AuthGuard] ,
+    component: ListadoEspaciosComponent },
+
+  { path: "espacios-academicos", 
+    canActivate: [AuthGuard] ,
+    component: PreinscripcionEspaciosComponent },
+
+  { path: "", 
+    canActivate: [AuthGuard] ,
+    component: PreinscripcionEspaciosComponent },
+
 ];
 
 @NgModule({
